@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Banner calculator</title>
+    <link rel="stylesheet" href="bannerCalc.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background container">
+        <div class="caclBlock">
+            <div class="blockMini" id="test">
+                <h3 class="h3">Укажите размеры баннера:</h3>
+
+                <div class="sizeBlock">
+                    <div class="divSizeInput">
+                        <p>Длина:</p>
+                        <input type="text" class="sizeInput" id="dlina">
+                    </div>
+                    <div class="divSizeInputRight">
+                        <p>Высота:</p>
+                        <input type="text" class="sizeInputRight" id="visota">
+                    </div>
+                </div>
+                <div class="radioBox">
+                    <p class="h3">Выбор единиц измерения:</p>
+                    <div class="radioBlock">
+                        <div class="radioOne">
+                            <p class="pRadio">Метры</p>
+                            <input type="radio" class="radio" name="units" id="unitsM" checked>
+                            <label for="unitsM" class="unitsM"></label>
+                        </div>
+                        <div class="radioTwo">
+                            <p class="pRadio">Сантиметры</p>
+                            <input type="radio" class="radio" name="units" id="unitsC">
+                            <label for="unitsC" class="unitsC"></label>
+                        </div>
+                        <div class="radioThree">
+                            <p class="pRadio">Милиметры</p>
+                            <input type="radio" class="radio" name="units" id="unitsMm">
+                            <label for="unitsMm" class="unitsMm"></label>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="h3">Расчёт стоимости:</h3>
+                <div class="topBlock">
+                    <div class="divSizeInput">
+                        <p>Проклейка:</p>
+                        <input type="text" class="sizeInputBottom" id="prokleikaFirtstBlock">
+                    </div>
+                    <div class="divSizeInput">
+                        <p>Люверсы:</p>
+                        <input type="text" class="sizeInputBottom" id="luversFirstBlock">
+                    </div>
+
+                </div>
+                <div class="bottomBlock">
+                    <div class="divSizeInput">
+                        <p>Печать:</p>
+                        <input type="text" class="sizeInputBottom" id="printOnlyFirstBlock">
+                    </div>
+                    <div class="divSizeInput">
+                        <p>Итого:</p>
+                        <input type="text" class="sizeInputBottom" id="totalPriceFirstBlock">
+                    </div>
+                </div>
+                <h3 class="h3">Передать в расчёт:</h3>
+                <div class="radioBlock">
+                    <div class="radioOne">
+                        <p class="pRadio">Только <br> печать</p>
+                        <input type="radio" class="radio" id='onlyPrintChek' name="radioBlock2">
+                        <label for="onlyPrintChek" class="onlyPrintChek"></label>
+                    </div>
+                    <div class="radioTwo">
+                        <p class="pRadio">Печать <br> и проклейка</p>
+                        <input type="radio" class="radio" id="OnlyProkleika" name="radioBlock2">
+                        <label for="OnlyProkleika" class="OnlyProkleika"></label>
+                    </div>
+                    <div class="radioTwo">
+                        <p class="pRadio">Полная <br> обработка</p>
+                        <input type="radio" class="radio" id="sObrabotkoiChek" name="radioBlock2" checked>
+                        <label for="sObrabotkoiChek" class="sObrabotkoiChek"></label>
+                    </div>
+                </div>
+                <h3 class="h3">Дизайнерские услуги:</h3>
+                <div class="divSizeInputDiz">
+                    <p>Стоимость:</p><input type="text" class="dizPriceInput" id="dizIn">
+                </div>
+
+                <h3 class="h3">Примечания к заказу:</h3>
+                <textarea class="area" name="" id="areaText" cols="30" rows="10"></textarea>
+                <div class="settings" id="settings">Настройки</div>
+                <div class="drop_menu" id="drop_list">
+                    <div class="drop_block">
+                        <p class="DropText">Стоимость печати</p>
+                        <input type="text"  class="sizeInputRight" id="priceM2" value="1000">
+                    </div>
+                    <div class="drop_block">
+                        <p class="DropText">Стоимость проклейки</p><input type="text" class="sizeInputRight"
+                            id="priceProkleika" value="70">
+                    </div>
+                    <div class="drop_block">
+                        <p class="DropText">Стоимость люверса</p><input type="text" class="sizeInputRight" id="priceLuvers"
+                            value="15">
+                    </div>
+                    <div class="drop_block"> <button class="OutButton" onclick="DropOut()">Закрыть окно</button></div>
+                </div>
+            </div>
+            <div class="blockMini">
+                <h3 class="h3">Результаты расчёта</h3>
+                <div class="resultArea">
+                    <div class="resultBlock">
+                        <div class="resultString">Стоимость печати:<div class="outString" id="printOutString"></div>
+                        </div>
+                        <div class="resultString">Стоимость проклейки:<div class="outString" id="prokleikaOutString">
+                            </div>
+                            <div class="rm" id="rm"></div>
+                        </div>
+                        <div class="resultString">Стоимость люверсов:<div class="outString" id="luversOutString"></div>
+                            <div class="rm" id="luversOut"></div>
+                        </div>
+                        <div class="resultString">Допечатная подготовка:<div class="outString" id="DizOutString"></div>
+                        </div>
+                        <div class="resultString">Итого:<div class="outString" id="itog"></div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="renderBox">
+                        <div class="renderKvadrat" id="renderKvadrat">
+                            <div class="dlinaKvadrat" id="dlinaKvadrat"></div>
+                            <div class="visotaKvadrat" id="visotaKvadrat"></div>
+                        </div>
+                        <div class="kvadratHorizontal" id="kvadratHorizontal">
+                            <div class="dlinaKvadratHorizontal" id="dlinaKvadratHorizontal"></div>
+                            <div class="visotaKvadratHorizontal" id="visotaKvadratHorizontal"></div>
+                        </div>
+                        <div class="kvadratVertical" id="kvadratVertical">
+                            <div class="dlinaKvadratVertical" id="dlinaKvadratVertical"></div>
+                            <div class="visotaKvadratVertical" id="visotaKvadratVertical"></div>
+                        </div>
+                    </div>
+
+                    <div class="areaTextResult" id="areaTextResult"></div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="bannerCalc.js"></script>
+</body>
+
+</html>
